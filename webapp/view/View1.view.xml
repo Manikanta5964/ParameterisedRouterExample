@@ -1,0 +1,61 @@
+<mvc:View controllerName="filterexample.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="ProductsReport">
+				<content>
+					<SearchField showSearchButton="true" showRefreshButton="true" search="handleSearch" id="searchId"/>
+					<Table alternateRowColors="true" items="{/data}" selectionChange = "handleButton" mode = "MultiSelect" includeItemInSelection = "true" id ="tableId">
+						<headerToolbar>
+							<Toolbar>
+								<Text text="SalesData"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://sort"/>
+								<Button icon="sap-icon://filter"/>
+								<Button icon="sap-icon://group"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="SalesId"/>
+							</Column>
+							<Column>
+								<Text text="Production"/>
+							</Column>
+							<Column>
+								<Text text="Price"/>
+							</Column>
+							<Column>
+								<Text text="Loss"/>
+							</Column>
+							<Column>
+								<Text text="Profit"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{Id}"></Text>
+									<!--<ObjectIdentifier title = "{Id}" text = "{path : 'Id', formatter: '.handleIdColor'}"></ObjectIdentifier>-->
+									<Text text="{Production}"></Text>
+									<Text text="{Price}"></Text>
+									<!--<ObjectNumber number="{Profit}" state="{path: 'Profit', formatter: '.handleColor'}"></ObjectNumber>-->
+									<ObjectNumber number="{Loss}" state="{path: 'Loss', formatter: '.handleLoss'}"></ObjectNumber>
+									<!--<Text text="{Loss}"></Text>-->
+										<ObjectNumber number="{Profit}" state="{path: 'Profit', formatter: '.handleColor'}"></ObjectNumber>
+									<!--<Text text="{Price}"></Text>-->
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</content>
+				<footer>
+					<Toolbar>
+						<Button id = "btn" text = "Approve" enabled = "false" press = "handleApprove"/>
+					</Toolbar>
+					
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
